@@ -2,7 +2,7 @@
 Optimizing Bank Marketing Model through building an event streaming pipeline that communicates with a Machine learning model microservice to display the likelihood and status of Bank Customers in real time.
 
 # Proposed Architecture
-![]()
+![](https://github.com/judeleonard/Kafka-Streaming-Pipeline/blob/main/assests/architecture.jpeg)
 
 # Project Description
 For this project I chose to go with a Microservice architecture instead of a Monolithic one since Microservices can communicate assynchronously and are independent of one of another, which makes them even more fault tolerant, fast and easily maintainable.
