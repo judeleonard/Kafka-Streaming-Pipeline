@@ -29,3 +29,54 @@ The kafka consumer on receiving this data via the kafka topic and processes it s
 # Challenges
 
 My major challenge was consuming and manipulating the data after it has been sent to Kafka. After observing the data was not coming in the right format it was sent. It was rather coming in as a tuple object instead of a dict. This made it very difficult to serialize for the model inference. I had to build my own custom json encoder before I could serialize it and parse it as json for model inferencing.
+
+
+# How to run the Project
+    
+   - To start installation of services and set up, run the below command:
+   
+   
+              docker-compose up
+
+      __Note__: running the docker command automatically creates a topic which is a bash command which I have included in the docker config file. Incase       you wish to Manually create your own topic without having them created automatically prior to running the compose command. After cloning this repo       edit the docker file by removing the kafka-create topic service as shown below;
+      
+                  kafka-create-topics:
+                  image: confluentinc/cp-kafka:5.2.0
+                  depends_on:
+                    - broker
+                  hostname: kafka-create-topics
+                  command: "bash -c 'echo Waiting for Kafka to be ready... && \
+                                     cub kafka-ready -b kafka:9092 1 20 && \
+                                     kafka-topics --create --topic customer_pred --if-not-exists --zookeeper zookeeper:2181 --partitions 2 --replication-factor 1 && \
+                                     sleep infinity'"
+                                     
+                                     
+                                     
+       Once removed you can Manually create as many topic as you want from your terminal after the `docker compose command` is done installing and        setting up as shown below:
+                   
+                   docker exec -it kafka kafka-topics.sh --bootstrap-server localhost:9092 --topic <your topic name> --create
+                   
+                   
+  - Create a virtual env and run 
+              
+                pip install -r requirements.txt
+                
+  - To start the producer run:
+                 
+                 python3 simulation.py
+                 
+   __Note__: Before running the consumer to start consuming data sent to our destination kafka topic. Make sure the model micro service API is running in the background also since we are utilizing the local version of the API.
+   
+   - To consume data and run model inferencing on every data sent. Run the below command:
+                 
+                 faust -A fraud_detection_worker worker -l info
+                 
+      If we need more workers to load and process the data we can also start an additional worker.
+      
+      
+      
+      
+      
+__Feel free to reach out incase anything here doesn't work as expected__.
+                 
+     
