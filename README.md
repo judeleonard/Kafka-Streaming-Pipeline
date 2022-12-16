@@ -14,3 +14,7 @@ The project comprises of two separate microservices that communicates with each 
 # Kafka Producer sending data to kafka topic
 
 ![](https://github.com/judeleonard/Kafka-Streaming-Pipeline/blob/main/assests/kafka-producer.gif)
+
+# Kafka Consumer consuming, processing and running model inference for every data send to kafka topic
+
+![](https://github.com/judeleonard/Kafka-Streaming-Pipeline/blob/main/assests/kafka_consumer.png)
