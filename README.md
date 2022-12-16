@@ -9,3 +9,8 @@ For this project I chose to go with a Microservice architecture instead of a Mon
 
 
 The project comprises of two separate microservices that communicates with each other other i.e __The Data Polling Microservices__ wrapped around Kafka and then the __Machine Learning Model Microservice__ deployed as RESTAPI via docker registry on __Heroku__. [See this repository for model deployment reference](https://github.com/judeleonard/Machine-learning-model-microservice). Unfortunately, this deployment is no longer valid as Heroku does no longer support free hosting services however, I had to utilize the local version of this API which still works nonetheless. 
+
+
+# Kafka Producer sending data to kafka topic
+
+![](https://github.com/judeleonard/Kafka-Streaming-Pipeline/blob/main/assests/kafka-producer.gif)
