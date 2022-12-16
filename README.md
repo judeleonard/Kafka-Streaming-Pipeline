@@ -69,7 +69,7 @@ My major challenge was consuming and manipulating the data after it has been sen
    
    - To consume data and run model inferencing on every data sent. Run the below command:
                  
-                 faust -A fraud_detection_worker worker -l info
+                 faust -A customer_prediction worker -l info
                  
       If we need more workers to load and process the data we can also start an additional worker.
       
