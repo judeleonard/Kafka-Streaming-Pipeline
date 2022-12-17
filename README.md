@@ -75,7 +75,10 @@ My major challenge was consuming and manipulating the data after it has been sen
       
       
       
-      
+ # Other things we can try
+
+We can also stream our data to focus on a particular business metric. Let's assume a situation whereby the bank wish to run this model real time prediction only on customers between a certain age limit. We can simply leverage this asynchronous process
+to capture the age field, parse in our condition and forward all incoming data to that event. In this case, a new Kafka topic to capture only this business metric. 
       
 __Feel free to reach out incase anything here doesn't work as expected__.
                  
