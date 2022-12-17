@@ -2,10 +2,10 @@
 Optimizing Bank Marketing Model through building an event streaming pipeline that communicates with a Machine learning model microservice to display the likelihood and status of Bank Customers in real time.
 
 # Proposed Architecture
-![](https://github.com/judeleonard/Kafka-Streaming-Pipeline/blob/main/assests/architecture.jpeg)
+![](https://github.com/judeleonard/Kafka-Streaming-Pipeline/blob/main/assests/kafka-architecture.jpeg)
 
 # Project Description
-For this project I chose to go with a Microservice architecture instead of a Monolithic one since Microservices can communicate assynchronously and are independent of one of another, which makes them even more fault tolerant, fast and easily maintainable.
+For this project I chose to go with a Microservice architecture instead of a Monolithic one since Microservices can communicate asynchronously and are independent of one of another, which makes them even more fault tolerant, fast and easily maintainable.
 
 
 The project comprises of two separate microservices that communicates with each other other i.e __The Data Polling Microservices__ wrapped around Kafka and then the __Machine Learning Model Microservice__ deployed as RESTAPI via docker registry on __Heroku__. [See this repository for model deployment reference](https://github.com/judeleonard/Machine-learning-model-microservice). Unfortunately, this deployment is no longer valid as Heroku does no longer support free hosting services however, I had to utilize the local version of this API which still works nonetheless. 
@@ -21,7 +21,7 @@ The kafka producer reads each record from the test data and sends it to a kafka 
 
 # Kafka Consumer consuming, processing and running model inference for every data send to kafka topic
 
-The kafka consumer on receiving this data via the kafka topic and processes it since the method support assynchronous process, then outputs both the input data and predicted result. Prediction result contains the likelihood of a Bank customer opening a term deposit with the bank, which is a boolean and the probability for that prediction.
+The kafka consumer on receiving this data via the kafka topic, processes it since the method support asynchronous process. It then outputs both the input data and predicted result. Prediction result contains the likelihood of a Bank customer opening a term deposit with the bank, which is a boolean and the probability for that prediction.
 
 ![](https://github.com/judeleonard/Kafka-Streaming-Pipeline/blob/main/assests/kafka-consumer.gif)
 
@@ -57,7 +57,7 @@ My major challenge was consuming and manipulating the data after it has been sen
                    docker exec -it kafka kafka-topics.sh --bootstrap-server localhost:9092 --topic <your topic name> --create
                    
                    
-  - Create a virtual env and run 
+  - Create a virtual env and run:
               
                 pip install -r requirements.txt
                 
